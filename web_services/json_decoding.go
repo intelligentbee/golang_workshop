@@ -12,9 +12,9 @@ type StructA struct {
 }
 
 func main() {
-	strA := []string{}
-	_ = json.Unmarshal([]byte(`["gopher", "con"]`), &strA)
-	fmt.Println(strA) // [gopher, con]
+	arr := []string{}
+	_ = json.Unmarshal([]byte(`["gopher", "con"]`), &arr)
+	fmt.Println(arr) // [gopher, con]
 
 	mapA := map[string]int{}
 	_ = json.Unmarshal([]byte(`{"apple": 5, "lettuce": 7}`), &mapA)

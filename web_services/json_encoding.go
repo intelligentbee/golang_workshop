@@ -10,8 +10,8 @@ type StructA struct {
 }
 
 func main() {
-	strA, _ := json.Marshal("gopher")
-	fmt.Println(string(strA)) // "gopher"
+	arr, _ := json.Marshal([]string{"apple", "lettuce"})
+	fmt.Println(string(arr)) // "gopher"
 
 	mapA := map[string]int{
 		"apple":   5,

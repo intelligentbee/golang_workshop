@@ -14,7 +14,7 @@ func main() {
 	}
 	defer db.Close()
 
-	_, err = db.Exec("CREATE TABLE IF NOT EXISTS test.hello(world varchar(50))")
+	_, err = db.Exec("CREATE TABLE IF NOT EXISTS test.hello(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, world varchar(50))")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -30,11 +30,12 @@ func main() {
 	}
 
 	for rows.Next() {
-		var s string
-		if err := rows.Scan(&s); err != nil {
+		var id int
+		var world string
+		if err := rows.Scan(&id, &world); err != nil {
 			log.Fatal(err)
 		}
-		log.Printf("found row containing %q", s)
+		log.Printf("found row containing %d, %q", id, world)
 	}
 	rows.Close()
 }
